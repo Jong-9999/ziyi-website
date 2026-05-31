@@ -11,24 +11,135 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ══════════════════════════════════════
+       BASE THEME (dark — default)
+    ══════════════════════════════════════ */
     :root {
-      --bg:        #0C0A09;
-      --surface:   #181614;
-      --surface-2: #252220;
-      --surface-3: #312E2B;
-      --border:    #3A3633;
-      --border-2:  #4A4643;
-      --text:      #F5F3F0;
-      --text-2:    #D4D0CB;
-      --text-3:    #A09890;
-      --text-4:    #6B6460;
-      --gold:      #CA8A04;
-      --gold-light:#F59E0B;
-      --gold-pale: #FCD34D;
-      --gold-dim:  #78450A;
-      --radius:    8px;
-      --radius-lg: 14px;
-      --ease:      200ms ease-out;
+      --bg:          #0C0A09;
+      --surface:     #181614;
+      --surface-2:   #252220;
+      --surface-3:   #312E2B;
+      --border:      #3A3633;
+      --border-2:    #4A4643;
+      --text:        #F5F3F0;
+      --text-2:      #D4D0CB;
+      --text-3:      #A09890;
+      --text-4:      #6B6460;
+      --gold:        #CA8A04;
+      --gold-light:  #F59E0B;
+      --gold-pale:   #FCD34D;
+      --gold-dim:    #78450A;
+      --accent-rgb:  202, 138, 4;
+      --nav-bg:      rgba(12, 10, 9, 0.84);
+      --radius:      8px;
+      --radius-lg:   14px;
+      --ease:        200ms ease-out;
+    }
+
+    /* ══════════════════════════════════════
+       SPRING THEME
+    ══════════════════════════════════════ */
+    body.theme-spring {
+      --bg:          #FDF5F8;
+      --surface:     #FFFFFF;
+      --surface-2:   #FAF0F4;
+      --surface-3:   #F5E4EC;
+      --border:      #ECC8D8;
+      --border-2:    #DFA8BC;
+      --text:        #1E0A14;
+      --text-2:      #3C1828;
+      --text-3:      #7A4860;
+      --text-4:      #B08098;
+      --gold:        #C2355C;
+      --gold-light:  #E05A80;
+      --gold-pale:   #F5B0CA;
+      --gold-dim:    #8A1538;
+      --accent-rgb:  194, 53, 92;
+      --nav-bg:      rgba(253, 245, 248, 0.92);
+    }
+
+    /* ══════════════════════════════════════
+       SUMMER THEME
+    ══════════════════════════════════════ */
+    body.theme-summer {
+      --bg:          #F0F7FF;
+      --surface:     #FFFFFF;
+      --surface-2:   #E5F0FF;
+      --surface-3:   #D5E7FF;
+      --border:      #BAD0E8;
+      --border-2:    #98B8D8;
+      --text:        #060F22;
+      --text-2:      #102040;
+      --text-3:      #305878;
+      --text-4:      #6090B0;
+      --gold:        #0268B0;
+      --gold-light:  #0A90E0;
+      --gold-pale:   #7EC8F5;
+      --gold-dim:    #013A70;
+      --accent-rgb:  2, 104, 176;
+      --nav-bg:      rgba(240, 247, 255, 0.92);
+    }
+
+    /* ══════════════════════════════════════
+       AUTUMN THEME
+    ══════════════════════════════════════ */
+    body.theme-autumn {
+      --bg:          #130A02;
+      --surface:     #1E1005;
+      --surface-2:   #2C1808;
+      --surface-3:   #3A220C;
+      --border:      #523210;
+      --border-2:    #6A4218;
+      --text:        #FFF5E8;
+      --text-2:      #F5D8B0;
+      --text-3:      #C89858;
+      --text-4:      #8A6030;
+      --gold:        #E04A14;
+      --gold-light:  #F87038;
+      --gold-pale:   #FDBA88;
+      --gold-dim:    #A02808;
+      --accent-rgb:  224, 74, 20;
+      --nav-bg:      rgba(19, 10, 2, 0.88);
+    }
+
+    /* ══════════════════════════════════════
+       WINTER THEME
+    ══════════════════════════════════════ */
+    body.theme-winter {
+      --bg:          #060A14;
+      --surface:     #0C1220;
+      --surface-2:   #12192E;
+      --surface-3:   #1A223C;
+      --border:      #243050;
+      --border-2:    #2E3E68;
+      --text:        #EEF2FF;
+      --text-2:      #C8D5F5;
+      --text-3:      #88A5D8;
+      --text-4:      #5070A8;
+      --gold:        #4A7EF8;
+      --gold-light:  #7AB0FF;
+      --gold-pale:   #BAD4FF;
+      --gold-dim:    #2040C0;
+      --accent-rgb:  74, 126, 248;
+      --nav-bg:      rgba(6, 10, 20, 0.88);
+    }
+
+    /* ══════════════════════════════════════
+       SMOOTH THEME TRANSITIONS
+    ══════════════════════════════════════ */
+    body,
+    nav,
+    .mob-nav,
+    .tl-card, .edu-card, .skill-cat,
+    .cert-card, .vol-card, .award-card,
+    .stat-card, .contact-wrap, footer,
+    .th-switcher, .th-btn,
+    .hero-grid, .hero-glow-1, .hero-glow-2, .hero-vline {
+      transition:
+        background-color 0.45s ease,
+        background 0.45s ease,
+        border-color 0.35s ease,
+        color 0.3s ease;
     }
 
     html { scroll-behavior: smooth; }
@@ -55,15 +166,16 @@
       top: 0; left: 0; right: 0;
       z-index: 100;
       height: 64px;
-      padding: 0 2.5rem;
+      padding: 0 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(12,10,9,0.80);
+      gap: 1rem;
+      background: var(--nav-bg);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid transparent;
-      transition: border-color var(--ease);
+      transition: border-color var(--ease), background-color 0.45s ease, background 0.45s ease;
     }
     nav.scrolled { border-bottom-color: var(--border); }
 
@@ -73,13 +185,14 @@
       color: var(--text);
       text-decoration: none;
       letter-spacing: -0.01em;
+      flex-shrink: 0;
     }
     .nav-logo span { color: var(--gold-light); }
 
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 2rem;
+      gap: 1.75rem;
     }
     .nav-links a {
       font-size: 0.8125rem;
@@ -91,6 +204,13 @@
       transition: color var(--ease);
     }
     .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
 
     .nav-burger {
       display: none;
@@ -111,7 +231,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2.25rem;
+      gap: 2rem;
     }
     .mob-nav.open { display: flex; }
     .mob-nav a {
@@ -130,6 +250,80 @@
     }
 
     /* ══════════════════════════════════════
+       THEME SWITCHER
+    ══════════════════════════════════════ */
+    .th-switcher {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 3px;
+    }
+
+    .th-btn {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--text-4);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+      transition: background-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .th-btn:hover {
+      background: var(--surface-3);
+      color: var(--text-2);
+    }
+    .th-btn:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 2px;
+    }
+    .th-btn.active {
+      background: rgba(var(--accent-rgb), 0.18);
+      color: var(--gold-light);
+      box-shadow: 0 0 0 1.5px rgba(var(--accent-rgb), 0.4);
+    }
+
+    /* Tooltip */
+    .th-btn::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: calc(100% + 7px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.5625rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.12s ease;
+    }
+    .th-btn:hover::after { opacity: 1; }
+
+    /* Mobile version of switcher inside mobile overlay */
+    .mob-th {
+      margin-top: 0.5rem;
+    }
+    .mob-th .th-btn {
+      width: 36px; height: 36px;
+    }
+    .mob-th .th-btn::after { bottom: calc(100% + 9px); }
+
+    /* ══════════════════════════════════════
        HERO
     ══════════════════════════════════════ */
     .hero {
@@ -142,7 +336,6 @@
       overflow: hidden;
     }
 
-    /* decorative grid + glow */
     .hero-decor {
       position: absolute;
       inset: 0;
@@ -153,38 +346,41 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(202,138,4,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(202,138,4,.035) 1px, transparent 1px);
+        linear-gradient(rgba(var(--accent-rgb), .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--accent-rgb), .035) 1px, transparent 1px);
       background-size: 64px 64px;
     }
     .hero-glow-1 {
       position: absolute;
       top: -10%; right: -5%;
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(202,138,4,.07) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(var(--accent-rgb), .07) 0%, transparent 65%);
       border-radius: 50%;
     }
     .hero-glow-2 {
       position: absolute;
       bottom: -15%; left: -10%;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(202,138,4,.04) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(var(--accent-rgb), .04) 0%, transparent 65%);
       border-radius: 50%;
     }
-    /* thin vertical accent line */
     .hero-vline {
       position: absolute;
       left: 3.75rem; top: 0; bottom: 0;
       width: 1px;
-      background: linear-gradient(to bottom, transparent 0%, rgba(202,138,4,.25) 30%, rgba(202,138,4,.25) 70%, transparent 100%);
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(var(--accent-rgb), .25) 30%,
+        rgba(var(--accent-rgb), .25) 70%,
+        transparent 100%);
     }
 
     .hero-tag {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(202,138,4,.1);
-      border: 1px solid rgba(202,138,4,.28);
+      background: rgba(var(--accent-rgb), .1);
+      border: 1px solid rgba(var(--accent-rgb), .28);
       color: var(--gold-light);
       font-size: 0.6875rem;
       font-weight: 700;
@@ -227,6 +423,7 @@
       line-height: 1.75;
       margin-bottom: 2.25rem;
     }
+    .hero-sub strong { color: var(--text-2); font-weight: 600; }
 
     .hero-chips {
       display: flex;
@@ -250,7 +447,7 @@
       align-items: center;
       gap: 0.45rem;
       background: var(--gold);
-      color: #0C0A09;
+      color: var(--bg);
       font-family: 'IBM Plex Sans', sans-serif;
       font-weight: 700;
       font-size: 0.8125rem;
@@ -261,7 +458,7 @@
       text-decoration: none;
       border: none;
       cursor: pointer;
-      transition: background var(--ease), transform var(--ease);
+      transition: background var(--ease), transform var(--ease), color var(--ease);
     }
     .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
 
@@ -303,9 +500,7 @@
     /* ══════════════════════════════════════
        SECTION SHELL
     ══════════════════════════════════════ */
-    .sec {
-      width: 100%;
-    }
+    .sec { width: 100%; }
     .sec-inner {
       max-width: 1160px;
       margin: 0 auto;
@@ -367,7 +562,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 1.375rem 1.5rem;
-      transition: border-color var(--ease);
+      transition: border-color var(--ease), background-color 0.45s ease;
       cursor: default;
     }
     .stat-card:hover { border-color: var(--gold-dim); }
@@ -413,11 +608,10 @@
       width: 9px; height: 9px;
       border-radius: 50%;
       background: var(--gold);
-      transform: translateX(0);
-      transition: box-shadow var(--ease), transform var(--ease);
+      transition: box-shadow var(--ease), transform var(--ease), background-color 0.45s ease;
     }
     .tl-item:hover .tl-dot {
-      box-shadow: 0 0 10px rgba(202,138,4,.55);
+      box-shadow: 0 0 10px rgba(var(--accent-rgb), .55);
       transform: scale(1.45);
     }
 
@@ -426,11 +620,11 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 1.5rem 1.75rem;
-      transition: border-color var(--ease), background var(--ease);
+      transition: border-color var(--ease), background-color 0.45s ease;
       cursor: default;
     }
     .tl-item:hover .tl-card {
-      border-color: rgba(202,138,4,.3);
+      border-color: rgba(var(--accent-rgb), .3);
       background: var(--surface-2);
     }
 
@@ -505,14 +699,14 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 1.625rem 1.75rem;
-      transition: border-color var(--ease), transform var(--ease);
+      transition: border-color var(--ease), transform var(--ease), background-color 0.45s ease;
       cursor: default;
     }
-    .edu-card:hover { border-color: rgba(202,138,4,.3); transform: translateY(-2px); }
+    .edu-card:hover { border-color: rgba(var(--accent-rgb), .3); transform: translateY(-2px); }
     .edu-featured {
       grid-column: span 2;
-      border-color: rgba(202,138,4,.18);
-      background: linear-gradient(135deg, var(--surface) 0%, rgba(202,138,4,.025) 100%);
+      border-color: rgba(var(--accent-rgb), .18);
+      background: linear-gradient(135deg, var(--surface) 0%, rgba(var(--accent-rgb), .025) 100%);
     }
     .edu-school {
       font-size: 0.6875rem;
@@ -574,9 +768,9 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 1.625rem 1.75rem;
-      transition: border-color var(--ease);
+      transition: border-color var(--ease), background-color 0.45s ease;
     }
-    .skill-cat:hover { border-color: rgba(202,138,4,.22); }
+    .skill-cat:hover { border-color: rgba(var(--accent-rgb), .22); }
     .skill-cat-title {
       font-size: 0.6875rem;
       font-weight: 700;
@@ -619,14 +813,14 @@
       display: flex;
       align-items: flex-start;
       gap: 1rem;
-      transition: border-color var(--ease), transform var(--ease);
+      transition: border-color var(--ease), transform var(--ease), background-color 0.45s ease;
       cursor: default;
     }
-    .cert-card:hover { border-color: rgba(202,138,4,.28); transform: translateY(-1px); }
+    .cert-card:hover { border-color: rgba(var(--accent-rgb), .28); transform: translateY(-1px); }
     .cert-ico {
       width: 34px; height: 34px;
       flex-shrink: 0;
-      background: rgba(202,138,4,.1);
+      background: rgba(var(--accent-rgb), .1);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -656,10 +850,10 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 1.5rem 1.625rem;
-      transition: border-color var(--ease);
+      transition: border-color var(--ease), background-color 0.45s ease;
       cursor: default;
     }
-    .vol-card:hover { border-color: rgba(202,138,4,.22); }
+    .vol-card:hover { border-color: rgba(var(--accent-rgb), .22); }
     .vol-badge {
       display: inline-flex;
       font-size: 0.5625rem;
@@ -690,17 +884,17 @@
       gap: 1.5rem;
     }
     .award-card {
-      background: linear-gradient(135deg, var(--surface) 0%, rgba(202,138,4,.035) 100%);
-      border: 1px solid rgba(202,138,4,.2);
+      background: linear-gradient(135deg, var(--surface) 0%, rgba(var(--accent-rgb), .035) 100%);
+      border: 1px solid rgba(var(--accent-rgb), .2);
       border-radius: var(--radius-lg);
       padding: 2rem 2.25rem;
-      transition: border-color var(--ease), transform var(--ease);
+      transition: border-color var(--ease), transform var(--ease), background 0.45s ease;
       cursor: default;
     }
-    .award-card:hover { border-color: rgba(202,138,4,.42); transform: translateY(-2px); }
+    .award-card:hover { border-color: rgba(var(--accent-rgb), .42); transform: translateY(-2px); }
     .award-ico {
       width: 46px; height: 46px;
-      background: rgba(202,138,4,.12);
+      background: rgba(var(--accent-rgb), .12);
       border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       color: var(--gold-light);
@@ -757,9 +951,9 @@
       font-size: 0.875rem;
       font-weight: 500;
       cursor: pointer;
-      transition: border-color var(--ease), color var(--ease), background var(--ease);
+      transition: border-color var(--ease), color var(--ease), background-color var(--ease);
     }
-    .c-link:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(202,138,4,.05); }
+    .c-link:hover { border-color: var(--gold); color: var(--gold-light); background: rgba(var(--accent-rgb), .05); }
 
     /* ══════════════════════════════════════
        FOOTER
@@ -796,6 +990,12 @@
       .pulse-dot { animation:none; }
       .scroll-hint { animation:none; }
       html { scroll-behavior: auto; }
+      body, nav, .mob-nav, .tl-card, .edu-card, .skill-cat,
+      .cert-card, .vol-card, .award-card, .stat-card,
+      .contact-wrap, footer, .th-switcher, .th-btn,
+      .hero-grid, .hero-glow-1, .hero-glow-2, .hero-vline {
+        transition: none;
+      }
     }
 
     /* ══════════════════════════════════════
@@ -814,9 +1014,10 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 0 1.5rem; }
+      nav { padding: 0 1.25rem; }
       .nav-links { display: none; }
       .nav-burger { display: block; }
+      .nav-th { display: none; }    /* hide nav switcher on mobile */
 
       .hero { padding: 8rem 1.5rem 5rem; }
       .hero-vline { left: 1.5rem; }
@@ -842,6 +1043,7 @@
 ══════════════════════════════════════ -->
 <nav id="nav" role="navigation" aria-label="Main navigation">
   <a href="#" class="nav-logo" aria-label="Cao Ziyi — Home">Cao <span>Ziyi</span></a>
+
   <ul class="nav-links" role="list">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -850,13 +1052,35 @@
     <li><a href="#awards">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-      <line x1="3" y1="6"  x2="21" y2="6"/>
-      <line x1="3" y1="12" x2="21" y2="12"/>
-      <line x1="3" y1="18" x2="21" y2="18"/>
-    </svg>
-  </button>
+
+  <div class="nav-right">
+    <!-- Theme switcher (desktop) -->
+    <div class="th-switcher nav-th" role="group" aria-label="Choose theme" id="navSwitcher">
+      <button class="th-btn active" data-theme="dark"   data-label="Dark"   aria-pressed="true"  aria-label="Dark theme">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+      <button class="th-btn" data-theme="spring" data-label="Spring" aria-pressed="false" aria-label="Spring theme">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="6.5" rx="1.8" ry="3"/><ellipse cx="12" cy="17.5" rx="1.8" ry="3"/><ellipse cx="6.5" cy="12" rx="3" ry="1.8"/><ellipse cx="17.5" cy="12" rx="3" ry="1.8"/></svg>
+      </button>
+      <button class="th-btn" data-theme="summer" data-label="Summer" aria-pressed="false" aria-label="Summer theme">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+      <button class="th-btn" data-theme="autumn" data-label="Autumn" aria-pressed="false" aria-label="Autumn theme">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      </button>
+      <button class="th-btn" data-theme="winter" data-label="Winter" aria-pressed="false" aria-label="Winter theme">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
+      </button>
+    </div>
+
+    <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
 </nav>
 
 <!-- Mobile overlay -->
@@ -867,12 +1091,31 @@
       <line x1="6"  y1="6"  x2="18" y2="18"/>
     </svg>
   </button>
-  <a href="#about"      class="mob-link">About</a>
-  <a href="#experience" class="mob-link">Experience</a>
-  <a href="#education"  class="mob-link">Education</a>
-  <a href="#skills"     class="mob-link">Skills</a>
-  <a href="#awards"     class="mob-link">Awards</a>
-  <a href="#contact"    class="mob-link">Contact</a>
+  <a href="#about"         class="mob-link">About</a>
+  <a href="#experience"    class="mob-link">Experience</a>
+  <a href="#education"     class="mob-link">Education</a>
+  <a href="#skills"        class="mob-link">Skills</a>
+  <a href="#awards"        class="mob-link">Awards</a>
+  <a href="#contact"       class="mob-link">Contact</a>
+
+  <!-- Theme switcher (mobile) -->
+  <div class="th-switcher mob-th" role="group" aria-label="Choose theme" id="mobSwitcher">
+    <button class="th-btn active" data-theme="dark"   data-label="Dark"   aria-pressed="true"  aria-label="Dark theme">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+    <button class="th-btn" data-theme="spring" data-label="Spring" aria-pressed="false" aria-label="Spring theme">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="6.5" rx="1.8" ry="3"/><ellipse cx="12" cy="17.5" rx="1.8" ry="3"/><ellipse cx="6.5" cy="12" rx="3" ry="1.8"/><ellipse cx="17.5" cy="12" rx="3" ry="1.8"/></svg>
+    </button>
+    <button class="th-btn" data-theme="summer" data-label="Summer" aria-pressed="false" aria-label="Summer theme">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+    <button class="th-btn" data-theme="autumn" data-label="Autumn" aria-pressed="false" aria-label="Autumn theme">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+    </button>
+    <button class="th-btn" data-theme="winter" data-label="Winter" aria-pressed="false" aria-label="Winter theme">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
+    </button>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════════
@@ -894,27 +1137,23 @@
   <h1>Cao<br><em>Ziyi</em></h1>
 
   <p class="hero-sub">
-    Finance &amp; Economics professional specialising in <strong style="color:var(--text-2)">risk management</strong> and capital markets. NUS Global Merit Scholar &amp; Head of FICC at Apeiron Holdings.
+    Finance &amp; Economics professional specialising in <strong>risk management</strong> and capital markets. NUS Global Merit Scholar &amp; Head of FICC at Apeiron Holdings.
   </p>
 
   <div class="hero-chips">
     <div class="hero-chip">
-      <!-- map-pin -->
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       Singapore
     </div>
     <div class="hero-chip">
-      <!-- briefcase -->
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
       Head of FICC &middot; Apeiron Holdings
     </div>
     <div class="hero-chip">
-      <!-- graduation-cap -->
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
       NUS Global Merit Scholar
     </div>
     <div class="hero-chip">
-      <!-- music note -->
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
       First Desk Double Bass &middot; NUS Symphony Orchestra
     </div>
@@ -963,7 +1202,7 @@
           <div class="stat-val">2×</div>
           <div class="stat-label">Double Degree: BBA Finance &amp; BSocSci Economics, Honours (Highest Distinction)</div>
         </div>
-        <div class="stat-val-card stat-card">
+        <div class="stat-card">
           <div class="stat-val">GMS</div>
           <div class="stat-label">NUS Global Merit Scholar — awarded for academic excellence &amp; leadership</div>
         </div>
@@ -983,7 +1222,6 @@
 
     <div class="timeline fu fu-d2">
 
-      <!-- Apeiron Holdings -->
       <div class="tl-item">
         <div class="tl-dot" aria-hidden="true"></div>
         <div class="tl-card">
@@ -1004,7 +1242,6 @@
         </div>
       </div>
 
-      <!-- ABC -->
       <div class="tl-item">
         <div class="tl-dot" aria-hidden="true"></div>
         <div class="tl-card">
@@ -1021,7 +1258,6 @@
         </div>
       </div>
 
-      <!-- NUS Economics Society -->
       <div class="tl-item">
         <div class="tl-dot" aria-hidden="true"></div>
         <div class="tl-card">
@@ -1038,7 +1274,6 @@
         </div>
       </div>
 
-      <!-- NUS Risk Society -->
       <div class="tl-item">
         <div class="tl-dot" aria-hidden="true"></div>
         <div class="tl-card">
@@ -1059,7 +1294,6 @@
         </div>
       </div>
 
-      <!-- MINT -->
       <div class="tl-item">
         <div class="tl-dot" aria-hidden="true"></div>
         <div class="tl-card">
@@ -1076,7 +1310,6 @@
         </div>
       </div>
 
-      <!-- NES Foundry -->
       <div class="tl-item">
         <div class="tl-dot" aria-hidden="true"></div>
         <div class="tl-card">
@@ -1097,7 +1330,6 @@
         </div>
       </div>
 
-      <!-- MAS -->
       <div class="tl-item">
         <div class="tl-dot" aria-hidden="true"></div>
         <div class="tl-card">
@@ -1141,7 +1373,6 @@
 
     <div class="edu-grid fu fu-d2">
 
-      <!-- NUS — featured -->
       <div class="edu-card edu-featured">
         <div class="edu-school">National University of Singapore</div>
         <div class="edu-degree">Double Degree — Bachelor of Business Administration (Finance) &amp; Bachelor of Social Sciences (Economics)</div>
@@ -1160,7 +1391,6 @@
         </div>
       </div>
 
-      <!-- YST -->
       <div class="edu-card">
         <div class="edu-school">Yong Siew Toh Conservatory of Music, NUS</div>
         <div class="edu-degree">Second Major in Performing Arts (Music) — Double Bass</div>
@@ -1169,7 +1399,6 @@
         <div class="edu-detail">First Desk Double Bass, NUS Symphony Orchestra (AY25–26). Guest Musician, NUS Wind Symphony. Performances include NUSSO STEER Malaysia Tour, Dewan Filharmonik Petronas, NUS Arts Festival, and Greenwood Primary School Side-by-side.</div>
       </div>
 
-      <!-- RVRC -->
       <div class="edu-card">
         <div class="edu-school">Ridge View Residential College, NUS</div>
         <div class="edu-degree">RVRC Residential College Programme</div>
@@ -1177,7 +1406,6 @@
         <div class="edu-detail">RVRC Flag Day 2025 &middot; RVRC Charity Golf. Courses: Feeding the Belly of a Nation &middot; Intersectionality, Identity and Inequality in Asia &middot; Culture and Sustainability in Southeast Asia (West Malaysia).</div>
       </div>
 
-      <!-- RI A-Levels -->
       <div class="edu-card">
         <div class="edu-school">Raffles Institution</div>
         <div class="edu-degree">Singapore-Cambridge GCE A Levels</div>
@@ -1186,7 +1414,6 @@
         <div class="edu-detail">H2: Biology, Chemistry, Economics, Mathematics &middot; H3 Biology. Class Chairperson &middot; Principal Double Bass, Raffles Symphonic Band &middot; MOE EAGLES Award &middot; SYF Certificate of Distinction 2021 &middot; Project Mindcare Founder &middot; Project Director, Bandemonium 2021.</div>
       </div>
 
-      <!-- RI IP -->
       <div class="edu-card">
         <div class="edu-school">Raffles Institution</div>
         <div class="edu-degree">Integrated Programme (Secondary)</div>
@@ -1505,39 +1732,77 @@
 
 <script>
 (function () {
-  // ── Nav scroll border
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function () {
-    nav.classList.toggle('scrolled', window.scrollY > 24);
-  }, { passive: true });
 
-  // ── Mobile nav
+  /* ── Helpers ── */
+  var body    = document.body;
+  var navEl   = document.getElementById('nav');
   var burger  = document.getElementById('burger');
   var mobNav  = document.getElementById('mobNav');
   var mobClose = document.getElementById('mobClose');
   var mobLinks = mobNav.querySelectorAll('.mob-link');
 
+  /* ── Nav scroll border ── */
+  window.addEventListener('scroll', function () {
+    navEl.classList.toggle('scrolled', window.scrollY > 24);
+  }, { passive: true });
+
+  /* ── Mobile nav ── */
   function openNav() {
     mobNav.classList.add('open');
     burger.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
   }
   function closeNav() {
     mobNav.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    body.style.overflow = '';
   }
-
   burger.addEventListener('click', openNav);
   mobClose.addEventListener('click', closeNav);
   mobLinks.forEach(function (l) { l.addEventListener('click', closeNav); });
-
-  // Close on Escape
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeNav();
   });
 
-  // ── Scroll fade-up via IntersectionObserver
+  /* ── Theme switcher ── */
+  var THEMES = ['dark', 'spring', 'summer', 'autumn', 'winter'];
+  var allBtns = document.querySelectorAll('.th-btn');
+
+  function applyTheme(theme) {
+    /* Remove all theme classes */
+    THEMES.forEach(function (t) { body.classList.remove('theme-' + t); });
+
+    /* Apply new theme (dark = no extra class, just :root defaults) */
+    if (theme !== 'dark') {
+      body.classList.add('theme-' + theme);
+    }
+
+    /* Update button states in both switchers */
+    allBtns.forEach(function (btn) {
+      var isActive = btn.dataset.theme === theme;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    /* Persist */
+    try { localStorage.setItem('cz-theme', theme); } catch (e) {}
+  }
+
+  /* Attach click handlers to ALL theme buttons (nav + mobile) */
+  allBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      applyTheme(btn.dataset.theme);
+    });
+  });
+
+  /* Restore saved theme on load */
+  var saved = 'dark';
+  try { saved = localStorage.getItem('cz-theme') || 'dark'; } catch (e) {}
+  /* Validate saved value */
+  if (THEMES.indexOf(saved) === -1) saved = 'dark';
+  applyTheme(saved);
+
+  /* ── Scroll fade-up via IntersectionObserver ── */
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -1547,12 +1812,11 @@
         }
       });
     }, { threshold: 0.08 });
-
     document.querySelectorAll('.fu').forEach(function (el) { io.observe(el); });
   } else {
-    // Fallback: just show everything
     document.querySelectorAll('.fu').forEach(function (el) { el.classList.add('in'); });
   }
+
 })();
 </script>
 </body>
